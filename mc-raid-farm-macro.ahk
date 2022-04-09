@@ -1,6 +1,3 @@
-; This script was created using Pulover's Macro Creator
-; www.macrocreator.com
-
 #NoEnv
 SetWorkingDir %A_ScriptDir%
 CoordMode, Mouse, Window
@@ -21,73 +18,63 @@ Macro1:
 Loop
 {
     WinActivate, Lunar Client ahk_class GLFW30
-    Sleep, 333
-    Sleep, 2110
-    Send, {d Down}
-    Sleep, 328
-    Send, {w Down}
-    Sleep, 484
-    Sleep, 16
-    Send, {d Up}{d Up}
-    Sleep, 781
     
-    Loop, 25
+    ; Walk in the right place to kill the mobs
+    Sleep, 300
+    Send, {d Down}
+    Send, {w Down}
+    Sleep, 300
+    Send, {d Up}
+    Send, {w Up}
+    
+    ; Kill mobs from raid
+    Loop, 40
     {
         Click
-        Sleep, 1000
+        Sleep, 800
     }
     
-    Sleep, 1047
+    ; Walk to the lever
+    Sleep, 100
     Send, {a Down}
-    Sleep, 766
-    Send, {a Up}
-    Sleep, 500
     Send, {s Down}
-    Sleep, 109
+    Sleep, 500
+    Send, {a Up}
     Send, {s Up}
-    Sleep, 1000
-    Click, 960, 600 Right, Down
-    Sleep, 109
-    Click, 960, 600 Right, Up
-    Sleep, 1782
+    
+    ; Press the lever
+    Sleep, 100
+    Click, Right
+    Sleep, 100
+    
+    ; Jump down
     Send, {w Down}
-    Sleep, 656
+    Sleep, 700
     Send, {w Up}
-    Sleep, 875
-    Send, {d Down}
-    Sleep, 250
+    Sleep, 100
+    
+    ; Get in the bubble column elevator
+    Send, {s Down}  ; Backwards
+    Sleep, 3000
+    Send, {s Up}
+    Send, {d Down}  ; Right
+    Sleep, 800
     Send, {d Up}
-    Sleep, 906
-    Send, {s Down}
-    Sleep, 1203
-    Send, {s Up}
-    Sleep, 641
-    Send, {s Down}
-    Sleep, 1766
-    Send, {s Up}
-    Sleep, 140
-    Send, {d Down}
-    Sleep, 594
-    Send, {d Up}
-    Sleep, 11594
-    Send, {a Down}
-    Sleep, 734
+    Sleep, 12000    ; Wait for bubble column
+    Send, {a Down}  ; Left
+    Sleep, 1000
     Send, {a Up}
-    Sleep, 156
-    Send, {s Down}
-    Sleep, 1485
+    Send, {s Down}  ; Backwards
+    Sleep, 2000
     Send, {s Up}
-    Sleep, 500
-    Send, {a Down}
-    Sleep, 390
+    Send, {a Down}  ; Left
+    Sleep, 400
     Send, {a Up}
-    Sleep, 9438
-    Click, 960, 600 Right, Down
-    Sleep, 140
-    Click, 960, 600 Right, Up
-    Sleep, 813
+    
+    ; Click lever
+    Click, Right
     Send, {d Down}
-    Sleep, 734
+    Sleep, 800
     Send, {w Down}{d Up}
     Sleep, 500
     Send, {w Up}
