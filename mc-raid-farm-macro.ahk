@@ -13,7 +13,7 @@ SetBatchLines -1
 
 ; UserGlobalVars
 
-F3::
+F5::
 Macro1:
 Loop
 {
@@ -31,8 +31,14 @@ Loop
     Loop, 40
     {
         Click
-        Sleep, 800
+        Sleep, 1000
     }
+	; Eat
+	Click, WheelUp
+	Click, Down Right
+	Sleep, 5000
+	Click, Up Right
+	Click, WheelDown
     
     ; Walk to the lever
     Sleep, 100
@@ -50,12 +56,14 @@ Loop
     ; Jump down
     Send, {w Down}
     Sleep, 700
-    Send, {w Up}
-    Sleep, 100
+    Send, {w Up}{d Down}
+    Sleep, 200
+	Send, {d Up}
+	Sleep, 4000
     
     ; Get in the bubble column elevator
     Send, {s Down}  ; Backwards
-    Sleep, 3000
+    Sleep, 1000
     Send, {s Up}
     Send, {d Down}  ; Right
     Sleep, 800
@@ -68,10 +76,11 @@ Loop
     Sleep, 2000
     Send, {s Up}
     Send, {a Down}  ; Left
-    Sleep, 400
+    Sleep, 300
     Send, {a Up}
     
     ; Click lever
+	Sleep, 8500 ; Wait for the horn sound to stop = all mobs spawned in
     Click, Right
     Send, {d Down}
     Sleep, 800
@@ -81,3 +90,6 @@ Loop
 }
 Return
 
+F6::
+Reload
+Return
